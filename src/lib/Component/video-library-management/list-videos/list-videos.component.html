@@ -1,0 +1,33 @@
+<span class="formspan">
+  <mat-card>
+    <mat-toolbar color="primary" style="justify-content: center; align-items: center;">
+      <h2 class="headerSpan">List Video Management</h2>
+    </mat-toolbar>
+
+     <!-- add button start here -->
+  <mat-toolbar class="buttonsetToolbar">
+    <button class="singleButton" mat-raised-button color="primary" (click)="addVideoPage()" >Add Video</button>
+  </mat-toolbar>
+<!-- adding button end here -->
+
+    <!-- lib-listing start here -->
+    <mat-card-content class="listing-content-admin">
+      <lib-listing class="formfilterdiv formfilterdivnew" *ngIf="VideoDataListing.length>0" 
+          [datasource]="VideoDataListing"
+          [skip]="VideoDataListing_skip" 
+          [modify_header_array]="VideoDataListing_modify_header" 
+          [apiurl]="serverUrlData" 
+          [editroute]="editUrl"
+          [sourcedata]="tableName"
+          [updateendpoint]="addupdate"
+          [deleteendpoint]="deleteEndpointUrl"
+          [jwttoken]="Tokenval" 
+          [statusarr]="status" 
+          [date_search_endpoint]="searchEndpoint"
+          [date_search_source]="tableName"
+          [search_settings]="search_settings"
+         >
+      </lib-listing>
+      </mat-card-content>
+    <!-- lib-listing end here -->
+    </mat-card>

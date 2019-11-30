@@ -1,0 +1,35 @@
+
+<!-- header start here -->
+<mat-card>
+  <mat-toolbar color="primary" style="justify-content: center; align-items: center;">
+    <h2 class="headerSpan">Video Category Management</h2>
+  </mat-toolbar>
+  <!-- header end here -->
+
+  <!-- add button start here -->
+  <mat-toolbar class="buttonsetToolbar">
+    <button class="singleButton" mat-raised-button color="primary" (click)="AddButton()" > Add Video</button>
+</mat-toolbar>
+<!-- adding button end here -->
+
+      <!--lib-listing start here -->
+  <mat-card-content class="listing-content-admin">
+    <lib-listing class="formfilterdiv formfilterdivnew" *ngIf="allDataList.length>0" 
+        [datasource]="allDataList"
+        [skip]="allDataList_skip" 
+        [modify_header_array]="allDataList_modify_header" 
+        [sourcedata]="TableNameViaApp"
+        [apiurl]="serverUrlData" 
+        [jwttoken]="tokenViaApp" 
+        [statusarr]="status" 
+        [updateendpoint]="addupdateRouteUrl"
+        [deleteendpoint]="DeleteendpointViaApp"
+        [editroute]="editRouteViaApp" 
+        [date_search_endpoint]="searchEndpointval"
+        [date_search_source]="searchSourceval"
+        [search_settings]="search_settings"
+       >
+    </lib-listing>
+    </mat-card-content>
+        <!--lib-listing end here -->
+</mat-card>

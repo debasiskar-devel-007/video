@@ -1,0 +1,55 @@
+<span class="formspan">
+  <mat-card>
+    <mat-toolbar color="primary" style="justify-content: center; align-items: center;">
+      <h2 class="headerSpan">{{headerText}}</h2>
+    </mat-toolbar>
+
+    <!-- add or edit form start here -->
+    <span class="formspan">
+      <mat-card-content class="example-container">
+        <form class="example-form" autocomplete="off" name="videoManagementForm" [formGroup]="videoManagementForm"
+          (ngSubmit)="VideoManagementFormSubmit()">
+
+          <mat-form-field>
+            <input matInput type="text" placeholder="Title" [formControl]="videoManagementForm.controls['title']"
+              (blur)="inputUntouch(videoManagementForm,'title')">
+            <mat-error *ngIf="videoManagementForm.controls['title'].touched && !videoManagementForm.controls['title'].valid
+                 && videoManagementForm.controls['title'].errors.required">
+              Category Name field can not be blank</mat-error>
+          </mat-form-field>
+          <mat-form-field>
+            <input matInput type="number" placeholder="Priority"
+              [formControl]="videoManagementForm.controls['priority']"
+              (blur)="inputUntouch(videoManagementForm,'priority')">
+            <mat-error *ngIf="videoManagementForm.controls['priority'].touched && !videoManagementForm.controls['priority'].valid
+                 && videoManagementForm.controls['priority'].errors.required">
+              Priority field can not be blank</mat-error> <br>
+            <br>
+          </mat-form-field>
+
+          <mat-checkbox [formControl]="videoManagementForm.controls['status']">Active</mat-checkbox><br>
+          <mat-label>Enter Video Url</mat-label>
+          <mat-form-field>
+            <mat-icon matSuffix (click)="previewUrl()">remove_red_eye</mat-icon>
+            <span matPrefix>{{ video_prefix }}</span>
+            <input matInput type="text" [formControl]="videoManagementForm.controls['videoUrl']" >
+
+          </mat-form-field>
+
+          <!-- ckeditor using start here -->
+          <mat-label>Description</mat-label>
+          <ckeditor [editor]="Editor" [config]="editorConfig" [formControl]="videoManagementForm.controls['description']" [(ngModel)]="model.editorData"
+            ></ckeditor>
+          <mat-error *ngIf="videoManagementForm.controls['description'].touched && !videoManagementForm.controls['description'].valid
+               && videoManagementForm.controls['description'].errors.required">
+            Description field can not be blank</mat-error>
+
+          <!-- ckeditor using end here -->
+          <button class="submitbtn" mat-raised-button color="primary" type="submit">{{buttonText}}</button>
+          <button class="submitbtn" mat-raised-button color="primary" type="submit" (click)="resetForm()">Reset</button>
+        </form>
+      </mat-card-content>
+    </span>
+    <mat-spinner *ngIf="spinnerloader"></mat-spinner>
+
+  </mat-card>

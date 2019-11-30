@@ -1,0 +1,10 @@
+<h1 mat-dialog-title>YOUTUBE VIDEO PREVIEW</h1>
+<div mat-dialog-content>
+ 
+   <p>https://www.youtube.com/watch?v={{ (data.message) }}</p> 
+  
+   
+   <lib-youtube-viewer [videoid]="data.message"></lib-youtube-viewer>
+   
+
+</div>
