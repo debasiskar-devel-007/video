@@ -6,10 +6,10 @@ import { MaterialModule } from './Module/material/material.module';
 import { CKEditorModule } from '@ckeditor/ckeditor5-angular';
 import { ApiService } from '../lib/Service/api.service';
 import { BrowserModule } from '@angular/platform-browser';
-import { ListingModule } from 'lib-listing';
 import { ListVideosComponent } from './Component/video-library-management/list-videos/list-videos.component';
 import { AddEditVideoManagementComponent,Dialogtest } from './Component/video-library-management/add-edit-video-management/add-edit-video-management.component';
 import { YoutubeViewerComponent } from './Component/video-library-management/youtube-viewer/youtube-viewer.component'
+import { ListingModule } from 'listing-angular7';
 @NgModule({
   declarations: [VideoComponent,Dialogtest, AddEditVideosComponent, ListVideosComponent,AddEditVideoManagementComponent, YoutubeViewerComponent],
   imports: [
